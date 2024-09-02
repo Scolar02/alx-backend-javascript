@@ -1,16 +1,18 @@
 const calculateNumber = (type, a, b) => {
-  if (type === 'SUM') {
-    return Math.round(a) + Math.round(b);
-  }
-  if (type === 'SUBTRACT') {
-    return Math.round(a) - Math.round(b);
-  }
-  if (type === 'DIVIDE') {
-    return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
-  }
+  a = Math.round(a);
+  b = Math.round(b);
 
-  // Throw an error for an invalid type
-  throw new Error('Invalid operation type');
+  switch (type) {
+    case 'SUM':
+      return a + b;
+    case 'SUBTRACT':
+      return a - b;
+    case 'DIVIDE':
+      if (b === 0) return 'Error';
+      return a / b;
+    default:
+      throw new Error('Invalid operation type');
+  }
 };
 
 module.exports = calculateNumber;
