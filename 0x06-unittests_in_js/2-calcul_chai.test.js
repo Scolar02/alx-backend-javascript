@@ -1,6 +1,5 @@
-import chai from 'chai';
-const expect = chai.expect;
-import calculateNumber from './2-calcul_chai.js';
+const { expect } = require('chai');
+const calculateNumber = require('./1-calcul.js');
 
 describe('calculateNumber', () => {
   describe('SUM', () => {
@@ -17,7 +16,7 @@ describe('calculateNumber', () => {
 
   describe('DIVIDE', () => {
     it('should return 0.2 when inputs are (DIVIDE, 1.4, 4.5)', () => {
-      expect(calculateNumber('DIVIDE', 1.4, 4.5)).to.be.closeTo(0.2, 0.001);
+      expect(calculateNumber('DIVIDE', 1.4, 4.5)).to.equal(0.2);
     });
 
     it('should return "Error" when inputs are (DIVIDE, 1.4, 0)', () => {
@@ -27,7 +26,7 @@ describe('calculateNumber', () => {
 
   describe('Invalid type', () => {
     it('should throw an error for invalid operation type', () => {
-      expect(() => calculateNumber('MULTIPLY', 1.4, 4.5)).to.throw(Error, 'Invalid operation type');
+      expect(() => calculateNumber('MULTIPLY', 1.4, 4.5)).to.throw('Invalid operation type');
     });
   });
 });

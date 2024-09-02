@@ -8,7 +8,9 @@ const calculateNumber = (type, a, b) => {
   if (type === 'DIVIDE') {
     return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
   }
+
+  // Throw an error for an invalid type
   throw new Error('Invalid operation type');
 };
 
-export default calculateNumber;
+module.exports = calculateNumber;
