@@ -1,13 +1,12 @@
 const express = require('express');
+
 const app = express();
 const PORT = 7865;
 
-// Middleware to handle root route
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.send('Welcome to the payment system');
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`API available on localhost port ${PORT}`);
 });
